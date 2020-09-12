@@ -8,7 +8,7 @@
     	For example:
     	<dbname value="demo" />
     -->
-    <dbname value="cool_weather" />
+    <dbname value = "cool_weather" />
 
     <!--
     	Define the version of your database. Each time you want
@@ -19,7 +19,7 @@
 			For example:
     	<version value="1" />
     -->
-    <version value="1" />
+    <version value="2" />
 
     <!--
     	Define your models in the list with mapping tag, LitePal will
@@ -32,7 +32,14 @@
     	</list>
     -->
     <list>
+        <mapping class = "com.example.coolweather.db.Province"/>
+        <mapping class = "com.example.coolweather.db.City"/>
+        <mapping class = "com.example.coolweather.db.County"/>
     </list>
+
+    <lsit>
+
+    </lsit>
 
     <!--
         Define where the .db file should be. "internal" means the .db file
