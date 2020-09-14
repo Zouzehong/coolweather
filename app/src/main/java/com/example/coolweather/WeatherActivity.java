@@ -6,6 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Notification;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -24,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.GlideException;
 import com.example.coolweather.gson.Forecast;
 import com.example.coolweather.gson.Weather;
+import com.example.coolweather.service.AutoUpdatesService;
 import com.example.coolweather.util.HttpUtil;
 import com.example.coolweather.util.Utility;
 
@@ -184,6 +186,8 @@ public class WeatherActivity extends AppCompatActivity {
 
     //处理并展示Weather实体类中的数据
     private void showWeatherInfo(Weather weather) {
+        Intent intent = new Intent(this, AutoUpdatesService.class);
+        startService(intent);
         //从weather对象中获取数据，然后显示到相应的控件上
         String cityName = weather.basic.cityName;
         String updateTime = weather.basic.update.updateTime.split(" ")[1];
